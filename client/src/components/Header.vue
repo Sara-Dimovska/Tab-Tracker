@@ -3,8 +3,8 @@
     v-toolbar-title Tab tracker
     v-spacer
     v-toolbar-items
-      v-btn(flat dark @click="navigateTo({name: 'register'})") Sign up
-      v-btn(flat dark @click="navigateTo({name: 'login'})") Login
+      v-btn(flat dark @click="navigateTo({name: 'register'})" v-if="!$store.state.isUserLoggedIn") Sign up
+      v-btn(flat dark @click="navigateTo({name: 'login'})" v-if="!$store.state.isUserLoggedIn") Login
 </template>
 
 <script>
