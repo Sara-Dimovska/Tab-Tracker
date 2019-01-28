@@ -1,12 +1,19 @@
-<template>
-  <div id="app">
-    <router-view/>
-  </div>
+<template lang="pug">
+  v-app
+    page-header
+    main
+      v-container(fluid)
+        router-view
 </template>
 
 <script>
+import PageHeader from '@/components/Header'
+
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    PageHeader
+  }
 }
 </script>
 
