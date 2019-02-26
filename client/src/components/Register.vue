@@ -1,19 +1,18 @@
 <template lang="pug">
   v-layout(row text-xs-center)
     v-flex(xs6 offset-xs3)
-      .white.elevation-2
-        v-toolbar.cyan(flat dense dark)
-          v-toolbar-title Register
-        .pl-4.pr-4.pt-2.pb-2
-          form(name="tab-tracker-form" autocomplete="off")
-          v-text-field(label="Email" v-model="email")
-          v-text-field(label="Password" type="password" v-model="password")
-          .error(v-html="error")
-          v-btn.cyan(@click="register" dark) Register
+      panel(title="Register")
+        form(name="tab-tracker-form" autocomplete="off")
+        v-text-field(label="Email" v-model="email")
+        v-text-field(label="Password" type="password" v-model="password")
+        div
+          font(color="red" v-html="error") asd
+        v-btn.cyan(@click="register" dark) Register
 </template>
 
 <script>
 import AuthenticationService from '@/services/AuthenticationService'
+import Panel from '@/components/Panel'
 
 export default {
   data () {
@@ -36,6 +35,9 @@ export default {
         this.error = error.response.data.error
       }
     }
+  },
+  components: {
+    Panel
   }
 }
 </script>
